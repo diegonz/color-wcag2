@@ -1,0 +1,53 @@
+{
+    "name": "diegonz/color-wcag2",
+    "description": "Color accessibility tool following Web Content Accessibility Guidelines (WCAG) 2.0",
+    "keywords": [
+        "diegonz",
+        "color",
+        "wcag2"
+    ],
+    "homepage": "https://github.com/diegonz/color-wcag2",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Diego González",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Diegonz\\ColorWcag2\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Diegonz\\ColorWcag2\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Diegonz\\ColorWcag2\\ColorWcag2ServiceProvider"
+            ],
+            "aliases": {
+                "ColorWcag2": "Diegonz\\ColorWcag2\\Facades\\ColorWcag2"
+            }
+        }
+    }
+}
