@@ -3,18 +3,16 @@
  * Created by PhpStorm.
  * User: hal9k
  * Date: 24/03/19
- * Time: 21:45
+ * Time: 21:45.
  */
 
 namespace Diegonz\Tests\ColorWcag2;
 
-use Diegonz\ColorWcag2\ColorWcag2;
 use PHPUnit\Framework\TestCase;
+use Diegonz\ColorWcag2\ColorWcag2;
 
 /**
- * Class ColorWcag2Test
- *
- * @package Diegonz\Tests\ColorWcag2
+ * Class ColorWcag2Test.
  */
 class ColorWcag2Test extends TestCase
 {

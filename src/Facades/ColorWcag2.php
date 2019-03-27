@@ -5,9 +5,7 @@ namespace Diegonz\ColorWcag2\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class ColorWcag2
- *
- * @package Diegonz\ColorWcag2\Facades
+ * Class ColorWcag2.
  */
 class ColorWcag2 extends Facade
 {

@@ -5,7 +5,7 @@ namespace Diegonz\ColorWcag2;
 use Diegonz\ColorWcag2\Exceptions\ColorException;
 
 /**
- * Class ColorWcag2
+ * Class ColorWcag2.
  */
 class ColorWcag2
 {
@@ -62,7 +62,7 @@ class ColorWcag2
     }
 
     /**
-     * Simple hexadecimal color string parsing
+     * Simple hexadecimal color string parsing.
      *
      * @param string $hexadecimalColor
      *
@@ -86,7 +86,6 @@ class ColorWcag2
             throw new ColorException('HEX color needs to be 6 or 3 digits long');
         }
 
-
         return $color;
     }
 
@@ -94,7 +93,7 @@ class ColorWcag2
      * Calculates the luminosity of an given RGB color,
      * the color code must be in the format of RRGGBB
      * the luminosity equations are from the WCAG 2 requirements
-     * http://www.w3.org/TR/WCAG20/#relativeluminancedef
+     * http://www.w3.org/TR/WCAG20/#relativeluminancedef.
      *
      * @param $color
      *
@@ -125,7 +124,7 @@ class ColorWcag2
     /**
      * Calculates the luminosity ratio of two colors
      * the luminosity ratio equations are from the WCAG 2 requirements
-     * http://www.w3.org/TR/WCAG20/#contrast-ratiodef
+     * http://www.w3.org/TR/WCAG20/#contrast-ratiodef.
      *
      * @param $color1
      * @param $color2
@@ -149,7 +148,7 @@ class ColorWcag2
      * it also returns the calculated contrast ratio
      * the ratio levels are from the WCAG 2 requirements
      * http://www.w3.org/TR/WCAG20/#visual-audio-contrast
-     * http://www.w3.org/TR/WCAG20/#larger-scaledef
+     * http://www.w3.org/TR/WCAG20/#larger-scaledef.
      *
      * @param $color1
      * @param $color2
@@ -181,7 +180,7 @@ class ColorWcag2
      * Returns true if given color has enough contrast
      * when compared to white (#ffffff) to accomplish
      * WCAG 2 AAA level requirements for medium bold size.
-     * https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+     * https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast.
      *
      * @param string $color
      *
@@ -199,7 +198,7 @@ class ColorWcag2
      * Returns true if given color has enough contrast
      * when compared to black (#000000) to accomplish
      * WCAG 2 AAA level requirements for medium bold size.
-     * https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+     * https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast.
      *
      * @param string $color
      *
@@ -214,7 +213,7 @@ class ColorWcag2
     }
 
     /**
-     * Static factory
+     * Static factory.
      *
      * @param string $level
      * @param string $type
@@ -222,7 +221,7 @@ class ColorWcag2
      * @return \Diegonz\ColorWcag2\ColorWcag2
      * @throws \Diegonz\ColorWcag2\Exceptions\ColorException
      */
-    public static function factory(string $level, string $type): ColorWcag2
+    public static function factory(string $level, string $type): self
     {
         self::setLevel($level);
         self::setType($type);
@@ -231,12 +230,12 @@ class ColorWcag2
     }
 
     /**
-     * Static Laravel factory loading settings from package config
+     * Static Laravel factory loading settings from package config.
      *
      * @return \Diegonz\ColorWcag2\ColorWcag2
      * @throws \Diegonz\ColorWcag2\Exceptions\ColorException
      */
-    public static function laravelFactory(): ColorWcag2
+    public static function laravelFactory(): self
     {
         self::setLevel(config('color-wcag2.level'));
         self::setType(config('color-wcag2.type'));

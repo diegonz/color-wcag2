@@ -2,15 +2,13 @@
 
 namespace Diegonz\ColorWcag2\Console\Commands;
 
+use Illuminate\Console\Command;
+use Illuminate\Config\Repository as Config;
+use Symfony\Component\Console\Input\InputOption;
 use Diegonz\ColorWcag2\Generators\GeneratorInterface as Generator;
 
-use Illuminate\Config\Repository as Config;
-use Illuminate\Console\Command;
-
-use Symfony\Component\Console\Input\InputOption;
-
 /**
- * Class ColorWcag2GeneratorCommand
+ * Class ColorWcag2GeneratorCommand.
  */
 class ColorWcag2GeneratorCommand extends Command
 {
@@ -29,7 +27,7 @@ class ColorWcag2GeneratorCommand extends Command
     protected $description = 'Generate a Javascript WCAG2 color contrast handler';
 
     /**
-     * Config
+     * Config.
      *
      * @var Config
      */
@@ -99,7 +97,6 @@ class ColorWcag2GeneratorCommand extends Command
 
         return compact('level', 'type', 'namespace');
     }
-
 
     /**
      * Get the path where the file will be generated.
