@@ -4,7 +4,7 @@
  * Package configuration.
  */
 return [
-    /**
+    /*
      * WCAG2 Conformance level
      * https://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html
      *
@@ -16,7 +16,7 @@ return [
      */
     'level' => 'AA',
 
-    /**
+    /*
      * Contrast ratio conformance
      *
      * AA Large        - ratio >= 3;

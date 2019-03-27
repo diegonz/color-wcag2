@@ -2,15 +2,15 @@
 
 namespace Diegonz\ColorWcag2;
 
-use Diegonz\ColorWcag2\Console\Commands\ColorWcag2GeneratorCommand;
 use Illuminate\Support\ServiceProvider;
-use Diegonz\ColorWcag2\Generators\GeneratorInterface;
-use Diegonz\ColorWcag2\Generators\TemplateGenerator;
-use Diegonz\ColorWcag2\Compilers\CompilerInterface;
 use Diegonz\ColorWcag2\Compilers\TemplateCompiler;
+use Diegonz\ColorWcag2\Compilers\CompilerInterface;
+use Diegonz\ColorWcag2\Generators\TemplateGenerator;
+use Diegonz\ColorWcag2\Generators\GeneratorInterface;
+use Diegonz\ColorWcag2\Console\Commands\ColorWcag2GeneratorCommand;
 
 /**
- * Class ColorWcag2ServiceProvider
+ * Class ColorWcag2ServiceProvider.
  */
 class ColorWcag2ServiceProvider extends ServiceProvider
 {
@@ -71,7 +71,6 @@ class ColorWcag2ServiceProvider extends ServiceProvider
         // Register Compiler
         $this->app->bind(CompilerInterface::class, TemplateCompiler::class);
 
-
         // Register Command
         $this->app->singleton(
             'command.color-wcag2.generate',
@@ -83,6 +82,5 @@ class ColorWcag2ServiceProvider extends ServiceProvider
             }
         );
         $this->commands('command.color-wcag2.generate');
-
     }
 }

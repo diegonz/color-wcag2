@@ -3,7 +3,7 @@
 namespace Diegonz\ColorWcag2\Compilers;
 
 /**
- * Interface CompilerInterface
+ * Interface CompilerInterface.
  */
 interface CompilerInterface
 {

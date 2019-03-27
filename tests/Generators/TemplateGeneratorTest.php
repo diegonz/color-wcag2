@@ -2,13 +2,12 @@
 
 namespace Diegonz\ColorWcag2\Tests\Generators;
 
-use Diegonz\ColorWcag2\Compilers\CompilerInterface;
-use Diegonz\ColorWcag2\Generators\GeneratorInterface;
-use Diegonz\ColorWcag2\Generators\TemplateGenerator;
-use Illuminate\Filesystem\Filesystem;
 use Mockery;
 use PHPUnit\Framework\TestCase;
-
+use Illuminate\Filesystem\Filesystem;
+use Diegonz\ColorWcag2\Compilers\CompilerInterface;
+use Diegonz\ColorWcag2\Generators\TemplateGenerator;
+use Diegonz\ColorWcag2\Generators\GeneratorInterface;
 
 class TemplateGeneratorTest extends TestCase
 {
@@ -22,10 +21,10 @@ class TemplateGeneratorTest extends TestCase
     {
         parent::setUp();
 
-        $this->compiler   = $this->mock(CompilerInterface::class);
+        $this->compiler = $this->mock(CompilerInterface::class);
         $this->filesystem = $this->mock(Filesystem::class);
 
-        /** @noinspection PhpParamsInspection */
+        /* @noinspection PhpParamsInspection */
         $this->generator = new TemplateGenerator($this->compiler, $this->filesystem);
     }
 
@@ -42,10 +41,10 @@ class TemplateGeneratorTest extends TestCase
      */
     public function testItWillCompileAndSaveATemplate(): void
     {
-        $template     = 'Template';
+        $template = 'Template';
         $templatePath = '/templatePath';
         $templateData = ['foo', 'bar'];
-        $filePath     = '/filePath';
+        $filePath = '/filePath';
 
         $this->filesystem
             ->shouldReceive('get')

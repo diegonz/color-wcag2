@@ -5,7 +5,7 @@ namespace Diegonz\ColorWcag2\Exceptions;
 use Exception;
 
 /**
- * Class ColorException
+ * Class ColorException.
  */
 class ColorException extends Exception
 {

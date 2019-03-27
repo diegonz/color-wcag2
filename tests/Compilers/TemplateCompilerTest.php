@@ -2,9 +2,9 @@
 
 namespace Diegonz\ColorWcag2\Tests\Compilers;
 
-use Diegonz\ColorWcag2\Compilers\TemplateCompiler;
 use Mockery;
 use PHPUnit\Framework\TestCase;
+use Diegonz\ColorWcag2\Compilers\TemplateCompiler;
 use Diegonz\ColorWcag2\Compilers\CompilerInterface;
 
 class TemplateCompilerTest extends TestCase
@@ -43,7 +43,7 @@ class TemplateCompilerTest extends TestCase
     protected function mock($class)
     {
         $mock = Mockery::mock($class);
-        /** @noinspection PhpUndefinedFieldInspection */
+        /* @noinspection PhpUndefinedFieldInspection */
         $this->app->instance($class, $mock);
 
         return $mock;
