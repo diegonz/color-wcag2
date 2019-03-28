@@ -187,7 +187,7 @@ class ColorWcag2
      * @return bool
      * @throws ColorException
      */
-        public static function contrast(string $color1, string $color2): bool
+    public static function contrast(string $color1, string $color2): bool
     {
         $results = self::evaluateColorContrast($color1, $color2);
 
