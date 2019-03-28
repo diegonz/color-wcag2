@@ -4,6 +4,12 @@ All notable changes to `color-wcag2` will be documented in this file
 
 ## [Unreleased]
 
+## 1.0.0 - 2019-03-27
+
+- initial release
+
+## 1.1.0 - 2019-03-28
+
 ### Added
 - Javascript implementation
 - Javascript template generator & compiler
@@ -14,9 +20,4 @@ All notable changes to `color-wcag2` will be documented in this file
 - Updated config files
 
 ### Removed
-- Public folder
-
-## 1.0.0 - 2019-03-27
-
-- initial release
-
+- Removed public folder
