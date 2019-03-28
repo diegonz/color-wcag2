@@ -177,6 +177,24 @@ class ColorWcag2
     }
 
     /**
+     * Returns true if given colors has enough contrast to accomplish
+     * WCAG 2 AAA level requirements for medium bold size.
+     * https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast.
+     *
+     * @param string $color1
+     * @param string $color2
+     *
+     * @return bool
+     * @throws ColorException
+     */
+        public static function contrast(string $color1, string $color2): bool
+    {
+        $results = self::evaluateColorContrast($color1, $color2);
+
+        return $results[self::$level][self::$type];
+    }
+
+    /**
      * Returns true if given color has enough contrast
      * when compared to white (#ffffff) to accomplish
      * WCAG 2 AAA level requirements for medium bold size.
@@ -189,9 +207,7 @@ class ColorWcag2
      */
     public static function isDark(string $color): bool
     {
-        $results = self::evaluateColorContrast($color, '#ffffff');
-
-        return $results[self::$level][self::$type];
+        return self::contrast($color, '#ffffff');
     }
 
     /**
@@ -207,9 +223,7 @@ class ColorWcag2
      */
     public static function isLight(string $color): bool
     {
-        $results = self::evaluateColorContrast($color, '#000000');
-
-        return $results[self::$level][self::$type];
+        return self::contrast($color, '#000000');
     }
 
     /**

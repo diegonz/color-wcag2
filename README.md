@@ -1,24 +1,53 @@
-# Very short description of the package
+# ColorWcag2
 
+[![Travis Build Status](https://img.shields.io/travis/diegonz/color-wcag2/master.svg?style=flat-square)](https://travis-ci.org/diegonz/color-wcag2)
+[![StyleCI Status](https://github.styleci.io/repos/178073390/shield?branch=master)](https://github.styleci.io/repos/178073390)
+[![Codecov Status](https://img.shields.io/codecov/c/github/diegonz/color-wcag2.svg?style=flat-square)](https://codecov.io/gh/diegonz/PHPWakeOnLan)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/diegonz/color-wcag2.svg?style=flat-square)](https://packagist.org/packages/diegonz/color-wcag2)
-[![Build Status](https://img.shields.io/travis/diegonz/color-wcag2/master.svg?style=flat-square)](https://travis-ci.org/diegonz/color-wcag2)
-[![Quality Score](https://img.shields.io/scrutinizer/g/diegonz/color-wcag2.svg?style=flat-square)](https://scrutinizer-ci.com/g/diegonz/color-wcag2)
-[![Total Downloads](https://img.shields.io/packagist/dt/diegonz/color-wcag2.svg?style=flat-square)](https://packagist.org/packages/diegonz/color-wcag2)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+Laravel simple color accessibility tool, following Web Content Accessibility Guidelines (WCAG) 2.0
 
 ## Installation
 
-You can install the package via composer:
+Require the package using [composer](https://getcomposer.org/):
 
 ```bash
 composer require diegonz/color-wcag2
 ```
 
+### Javascript asset [optional]
+
+Run the artisan command to generate de javascript asset:
+
+```bash
+php artisan color-wcag2:generate
+```
+
+Then include the javascript asset in your template like this:
+```html
+<script src="{{ asset('js/color-wcag2.js') }}"></script>
+``` 
+
 ## Usage
 
-``` php
-// Usage description here
+### PHP
+
+```php
+<?php
+
+use \Diegonz\ColorWcag2\Facades\ColorWcag2;
+
+ColorWcag2::contrast('#5b77a0', '#fffffff');
+
+// bool(true)
+```
+
+### Javascript
+
+```javascript
+colorWcag2.contrast('#5b77a0', '#fffffff');
+
+// "true"
 ```
 
 ### Testing
@@ -42,7 +71,6 @@ If you discover any security related issues, please email diego@smartidea.es ins
 ## Credits
 
 - [Diego González](https://github.com/diegonz)
-- [All Contributors](../../contributors)
 
 ## License
 

@@ -89,11 +89,19 @@ class ColorWcag2Test extends TestCase
     /**
      * @throws \Diegonz\ColorWcag2\Exceptions\ColorException
      */
+    public function testContrast()
+    {
+        // #637fa8 LIGHT / #5b77a0 DARK
+
+        $this->assertFalse(ColorWcag2::contrast('#637fa8', '#ffffff'));
+        $this->assertTrue(ColorWcag2::contrast('#5b77a0', '#ffffff'));
+    }
+
+    /**
+     * @throws \Diegonz\ColorWcag2\Exceptions\ColorException
+     */
     public function testIsDark()
     {
-        // #637fa8 FALSE - Choose black to contrast
-        // #5b77a0 TRUE - Choose white to contrast
-
         $this->assertFalse(ColorWcag2::isDark('#637fa8'));
     }
 

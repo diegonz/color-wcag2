@@ -67,6 +67,12 @@
                 };
             },
 
+            contrast: function (color1, color2) {
+                let results = this.evaluateColorContrast(color1, color2);
+
+                return results[this.level][this.type];
+            },
+
             isDark: function (color) {
                 let results = this.evaluateColorContrast(color, '#ffffff');
 
@@ -100,6 +106,9 @@
             },
             evaluateColorContrast: function (color1, color2) {
                 return colorHandler.evaluateColorContrast(color1, color2);
+            },
+            contrast: function (color1 ,color2) {
+                return colorHandler.contrast(color1, color2);
             },
             isDark: function (color) {
                 return colorHandler.isDark(color);
