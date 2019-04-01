@@ -4,11 +4,12 @@ All notable changes to `color-wcag2` will be documented in this file
 
 ## [Unreleased]
 
-## 1.0.0 - 2019-03-27
+## [1.2.0] - 2019-04-01
 
-- initial release
+### Removed
+- Removed Illuminate/Support library dependency
 
-## 1.1.0 - 2019-03-28
+## [1.1.0] - 2019-03-28
 
 ### Added
 - Javascript implementation
@@ -21,3 +22,7 @@ All notable changes to `color-wcag2` will be documented in this file
 
 ### Removed
 - Removed public folder
+
+## [1.0.0] - 2019-03-27
+
+- initial release
