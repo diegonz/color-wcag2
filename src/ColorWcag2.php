@@ -42,7 +42,7 @@ class ColorWcag2
      */
     protected static function setLevel(string $level): void
     {
-        if (! \in_array($level, ['AAA', 'AA'], true)) {
+        if (! in_array($level, ['AAA', 'AA'], true)) {
             throw new ColorException('Wrong WCAG level [AAA, AA]');
         }
         self::$level = $level;
@@ -55,7 +55,7 @@ class ColorWcag2
      */
     protected static function setType(string $type): void
     {
-        if (! \in_array($type, ['Large', 'Medium_Bold', 'Normal'], true)) {
+        if (! in_array($type, ['Large', 'Medium_Bold', 'Normal'], true)) {
             throw new ColorException('Wrong type [Large, Medium_Bold, Normal]');
         }
         self::$type = $type;
@@ -72,14 +72,14 @@ class ColorWcag2
     public static function parseHexString(string $hexadecimalColor): string
     {
         // Strip # sign if present
-        $color = \str_replace('#', '', $hexadecimalColor);
+        $color = str_replace('#', '', $hexadecimalColor);
 
-        if (! \ctype_xdigit($color)) {
+        if (! ctype_xdigit($color)) {
             throw new ColorException('Invalid HEX color string ['.$color.']');
         }
 
         // Ensure 6 digit format
-        $length = \strlen($color);
+        $length = strlen($color);
         if ($length === 3) {
             $color = $color[0].$color[0].$color[1].$color[1].$color[2].$color[2];
         } elseif ($length !== 6) {
@@ -104,11 +104,11 @@ class ColorWcag2
     {
         $color = self::parseHexString($color);
 
-        $red = \hexdec(\substr($color, 0, 2)) / 255;
-        $green = \hexdec(\substr($color, 2, 2)) / 255;
-        $blue = \hexdec(\substr($color, 4, 2)) / 255;
+        $red = hexdec(substr($color, 0, 2)) / 255;
+        $green = hexdec(substr($color, 2, 2)) / 255;
+        $blue = hexdec(substr($color, 4, 2)) / 255;
 
-        $transform = function (&$color) {
+        $transform = static function (&$color) {
             $color = $color <= 0.03928
                 ? $color / 12.92
                 : (($color + 0.055) / 1.055) ** 2.4;

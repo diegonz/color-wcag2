@@ -14,7 +14,7 @@ class ColorWcag2 extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor()
+    protected static function getFacadeAccessor(): string
     {
         return 'color-wcag2';
     }

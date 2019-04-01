@@ -2,6 +2,7 @@
 
 namespace Diegonz\ColorWcag2\Console\Commands;
 
+use Exception;
 use Illuminate\Console\Command;
 use Illuminate\Config\Repository as Config;
 use Symfony\Component\Console\Input\InputOption;
@@ -69,7 +70,7 @@ class ColorWcag2GeneratorCommand extends Command
             );
 
             $this->info("Created: {$filePath}");
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->error($e->getMessage());
         }
     }
