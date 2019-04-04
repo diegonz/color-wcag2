@@ -14,7 +14,6 @@ use Diegonz\ColorWcag2\Console\Commands\ColorWcag2GeneratorCommand;
  */
 class ColorWcag2ServiceProvider extends ServiceProvider
 {
-
     /**
      * Bootstrap the application services.
      */
@@ -51,11 +50,11 @@ class ColorWcag2ServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->app->singleton(
                 'command.color-wcag2.generate', static function ($app) {
-                /* @var \Illuminate\Foundation\Application $app */
-                $generator = $app->make(GeneratorInterface::class);
+                    /* @var \Illuminate\Foundation\Application $app */
+                    $generator = $app->make(GeneratorInterface::class);
 
-                return new ColorWcag2GeneratorCommand($app['config'], $generator);
-            });
+                    return new ColorWcag2GeneratorCommand($app['config'], $generator);
+                });
             $this->commands('command.color-wcag2.generate');
         }
     }
