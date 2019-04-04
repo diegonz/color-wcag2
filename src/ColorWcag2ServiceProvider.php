@@ -14,41 +14,17 @@ use Diegonz\ColorWcag2\Console\Commands\ColorWcag2GeneratorCommand;
  */
 class ColorWcag2ServiceProvider extends ServiceProvider
 {
+
     /**
      * Bootstrap the application services.
      */
     public function boot(): void
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'color-wcag2');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'color-wcag2');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
-
         if ($this->app->runningInConsole()) {
+            // Publishing config
             $this->publishes([
                 __DIR__.'/../config/color-wcag2.php' => config_path('color-wcag2.php'),
             ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/color-wcag2'),
-            ], 'views');*/
-
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/color-wcag2'),
-            ], 'assets');*/
-
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/color-wcag2'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
         }
     }
 
@@ -71,16 +47,16 @@ class ColorWcag2ServiceProvider extends ServiceProvider
         // Register Compiler
         $this->app->bind(CompilerInterface::class, TemplateCompiler::class);
 
-        // Register Command
-        $this->app->singleton(
-            'command.color-wcag2.generate',
-            static function ($app) {
-                $config = $app['config'];
+        // Registering package CLI command
+        if ($this->app->runningInConsole()) {
+            $this->app->singleton(
+                'command.color-wcag2.generate', static function ($app) {
+                /* @var \Illuminate\Foundation\Application $app */
                 $generator = $app->make(GeneratorInterface::class);
 
-                return new ColorWcag2GeneratorCommand($config, $generator);
-            }
-        );
-        $this->commands('command.color-wcag2.generate');
+                return new ColorWcag2GeneratorCommand($app['config'], $generator);
+            });
+            $this->commands('command.color-wcag2.generate');
+        }
     }
 }

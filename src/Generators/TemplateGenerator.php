@@ -63,8 +63,7 @@ class TemplateGenerator implements GeneratorInterface
     public function makeDirectory($directory): void
     {
         if (! $this->filesystem->isDirectory($directory)) {
-            // TODO: Change directory permissions to 755 ¿?
-            $this->filesystem->makeDirectory($directory, 0777, true);
+            $this->filesystem->makeDirectory($directory, 0755, true);
         }
     }
 }

@@ -4,6 +4,10 @@ All notable changes to `color-wcag2` will be documented in this file
 
 ## [Unreleased]
 
+### Changed
+
+- Changed default folder creation permission to 0755
+
 ## [1.2.0] - 2019-04-01
 
 ### Removed
